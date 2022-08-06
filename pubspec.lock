@@ -170,5 +170,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.2"
+  vertical_navigation_bar:
+    dependency: "direct main"
+    description:
+      name: vertical_navigation_bar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
 sdks:
   dart: ">=2.17.6 <3.0.0"

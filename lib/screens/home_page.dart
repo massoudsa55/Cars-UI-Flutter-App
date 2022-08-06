@@ -1,35 +1,41 @@
 import 'package:cars_ui_flutter_app/constants.dart';
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'package:cars_ui_flutter_app/screens/categorries.dart';
+import 'package:cars_ui_flutter_app/screens/title_categories.dart';
 import 'package:flutter/material.dart';
+
+import 'vertically_navigation_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    List<String> categories = ["HOT", "AMERICAN", "FRENCH", "MEXICO"];
+    int selectedIndex = 0;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: cPrimaryColor,
+        elevation: 0,
+      ),
       backgroundColor: cPrimaryColor,
-      bottomNavigationBar: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+      body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          RotatedBox(
-            quarterTurns: 1,
-            child: ConvexAppBar(
-              //backgroundColor: cPrimaryLightColor,
-              //cornerRadius: 50,
-              style: TabStyle.titled,
-              //curveSize: 150,
-              items: const [
-                TabItem(icon: Icons.home, title: 'Home'),
-                TabItem(icon: Icons.map, title: 'Discovery'),
-                TabItem(icon: Icons.add, title: 'Add'),
-                TabItem(icon: Icons.message, title: 'Message'),
-                TabItem(icon: Icons.people, title: 'Profile'),
+          const VerticallyNavigationBar(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: cDefaultPadding),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset(
+                  "assets/icons/logo.png",
+                  width: size.width * 0.4,
+                  fit: BoxFit.cover,
+                ),
+                const SizedBox(height: cDefaultPadding),
+                //const TitleCategory(),
               ],
-              initialActiveIndex: 2, //optional, default as 0
-              // ignore: avoid_print
-              onTap: (int i) => print('index clicked = $i'),
             ),
           ),
         ],
