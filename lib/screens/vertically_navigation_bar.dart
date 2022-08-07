@@ -21,27 +21,25 @@ class VerticallyNavigationBar extends StatelessWidget {
           bottomRight: Radius.circular(100),
         ),
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-            horizontal: cDefaultPadding / 2, vertical: cDefaultPadding),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            IconButton(
-                onPressed: () {}, icon: Image.asset("assets/icons/menu.png")),
-            const SizedBox(height: 30),
-            Image.asset(
-              "assets/icons/wissam.png",
-              height: size.width * 0.1,
-            ),
-            const Categorries(),
-            //const Spacer(),
-            Image.asset(
-              "assets/icons/bag.png",
-              height: size.width * 0.1,
-            ),
-          ],
-        ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          IconButton(
+            onPressed: () {},
+            icon: Image.asset("assets/icons/menu.png"),
+          ),
+          const SizedBox(height: 30),
+          Image.asset(
+            "assets/icons/wissam.png",
+            height: size.width * 0.1,
+          ),
+          const Categorries(),
+          //const Spacer(),
+          Image.asset(
+            "assets/icons/bag.png",
+            height: size.width * 0.1,
+          ),
+        ],
       ),
     );
   }

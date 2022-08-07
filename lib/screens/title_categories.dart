@@ -13,16 +13,10 @@ class _TitleCategoryState extends State<TitleCategory> {
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: cDefaultPadding),
-      child: SizedBox(
-        height: 25,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: categories.length,
-          itemBuilder: (context, index) => buildCategory(index),
-        ),
-      ),
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: categories.length,
+      itemBuilder: (context, index) => buildCategory(index),
     );
   }
 
@@ -34,22 +28,35 @@ class _TitleCategoryState extends State<TitleCategory> {
         });
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: cDefaultPadding),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: Stack(
+          alignment: Alignment.center,
           children: [
+            if (selectedIndex == index)
+              Container(
+                height: 40,
+                width: 70,
+                decoration: BoxDecoration(
+                  color: cPrimaryLightColor,
+                  borderRadius: const BorderRadius.only(
+                    topRight: Radius.circular(20),
+                    bottomLeft: Radius.circular(20),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 60,
+                      offset: const Offset(0, 10),
+                      color: cPrimaryLightColor.withOpacity(0.7),
+                    ),
+                  ],
+                ),
+              ),
             Text(
               categories[index],
-              style: const TextStyle(
+              style: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Colors.black,
+                color: selectedIndex == index ? Colors.white : Colors.black,
               ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: cDefaultPadding / 4),
-              height: 2,
-              width: 30,
-              color: Colors.black,
             ),
           ],
         ),

@@ -18,7 +18,7 @@ class _CategorriesState extends State<Categorries> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: cDefaultPadding * 2),
       child: SizedBox(
-        height: size.height * 0.53,
+        height: size.height * 0.46,
         child: ListView.builder(
           scrollDirection: Axis.vertical,
           itemCount: categories.length,
@@ -42,7 +42,7 @@ class _CategorriesState extends State<Categorries> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: cDefaultPadding / 2),
+            padding: const EdgeInsets.only(left: cDefaultPadding),
             child: RotatedBox(
               quarterTurns: -1,
               child: Text(
@@ -57,11 +57,24 @@ class _CategorriesState extends State<Categorries> {
             Padding(
               padding: const EdgeInsets.only(left: cDefaultPadding / 2),
               child: Container(
-                height: 30,
-                width: 20,
+                height: 10,
+                width: 5,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   color: cPrimaryLightColor,
+                ),
+              ),
+            ),
+          const Spacer(),
+          if (selectedIndex == index)
+            Container(
+              width: 30,
+              height: 80,
+              decoration: const BoxDecoration(
+                color: cSecondaryColor,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(50),
+                  bottomRight: Radius.circular(50),
                 ),
               ),
             ),

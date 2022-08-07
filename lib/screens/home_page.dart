@@ -1,5 +1,6 @@
 import 'package:cars_ui_flutter_app/constants.dart';
 import 'package:cars_ui_flutter_app/screens/categorries.dart';
+import 'package:cars_ui_flutter_app/screens/left_navigation_bar.dart';
 import 'package:cars_ui_flutter_app/screens/title_categories.dart';
 import 'package:flutter/material.dart';
 
@@ -22,21 +23,27 @@ class HomePage extends StatelessWidget {
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const VerticallyNavigationBar(),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: cDefaultPadding),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Image.asset(
-                  "assets/icons/logo.png",
-                  width: size.width * 0.4,
-                  fit: BoxFit.cover,
+          //const VerticallyNavigationBar(),
+          const LeftNavigationBar(),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset(
+                "assets/icons/logo.png",
+                width: size.width * 0.4,
+                fit: BoxFit.cover,
+              ),
+              const SizedBox(height: cDefaultPadding),
+              //const TitleCategory(),
+              SizedBox(
+                width: size.width * 0.8,
+                height: 30,
+                child: const DecoratedBox(
+                  decoration: BoxDecoration(),
+                  child: TitleCategory(),
                 ),
-                const SizedBox(height: cDefaultPadding),
-                //const TitleCategory(),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),
