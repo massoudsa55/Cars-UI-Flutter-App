@@ -15,7 +15,7 @@ class LeftNavigationBar extends StatelessWidget {
       child: Stack(
         children: [
           SizedBox(
-            width: size.width * 0.17,
+            width: size.width * 0.16,
             height: double.infinity,
             child: DecoratedBox(
               decoration: const BoxDecoration(

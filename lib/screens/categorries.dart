@@ -32,6 +32,7 @@ class _CategorriesState extends State<Categorries> {
   }
 
   Widget buildCategory(int index) {
+    var size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
         setState(() {
@@ -68,8 +69,8 @@ class _CategorriesState extends State<Categorries> {
           const Spacer(),
           if (selectedIndex == index)
             Container(
-              width: 30,
-              height: 80,
+              width: size.width * 0.05,
+              height: size.height * 0.1,
               decoration: const BoxDecoration(
                 color: cSecondaryColor,
                 borderRadius: BorderRadius.only(
